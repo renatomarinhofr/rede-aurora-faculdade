@@ -14,6 +14,10 @@ createApp({
     },
   },
   methods: {
+    closeMenu() {
+      this.menuOpen = false;
+      this.$refs.menuButton.focus();
+    },
     async navigate() {
       this.route = currentRoute();
       this.menuOpen = false;

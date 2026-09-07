@@ -1,4 +1,4 @@
-# Rede Aurora — Experiência Prática III
+# Rede Aurora — Experiência Prática IV
 
 SPA acadêmica em Vue 3.5.21, com módulos JavaScript nativos. Organização fictícia;
 nenhuma inscrição, doação ou comunicação real é realizada.
@@ -7,7 +7,28 @@ nenhuma inscrição, doação ou comunicação real é realizada.
 
 Na pasta do projeto, execute `python3 -m http.server 8000` e acesse
 `http://localhost:8000/html/index.html`. Módulos ES precisam de HTTP;
-abrir por `file://` não é suportado. Não é necessário instalar dependências.
+abrir por `file://` não é suportado. Para executar o fonte não é necessário
+instalar dependências. Para build/testes: Node.js 22+, `npm ci`, `npm run build`.
+O diretório `dist/` contém a versão publicável; sirva-o via HTTP e abra `index.html`.
+
+## Publicação e manutenção
+
+GitHub Pages publica o artefato `dist/` pelo workflow `.github/workflows/pages.yml`
+em pushes para `main`. O workflow instala pelo lockfile, compila e envia o artefato.
+Não há segredos de serviço ou credenciais no código; a publicação usa o token
+temporário de Actions com permissões explícitas de Pages.
+
+GitFlow: `main` estável, `develop` integração, `feature/acessibilidade-deploy`
+para a evolução e `release/1.0.0` para lançamento. Alterações entram por pull
+request. Trabalho individual: revisão técnica assistida, sem simular aprovação
+independente. Commits semânticos `feat`, `fix`, `docs`; versão inicial `v1.0.0`.
+
+Para atualizar conteúdo, edite `js/modules/projects.js`. Para regras de validação,
+edite `validation.js`. Preserve a chave versionada de preferências ou implemente
+migração explícita. Nunca salve dados pessoais no armazenamento deste protótipo.
+Antes de integrar: execute testes, revise o diff e gere o build. Para reverter
+uma versão publicada, use um commit de reversão e uma nova versão PATCH,
+preservando o histórico.
 
 ## Organização e fluxos
 
@@ -30,7 +51,27 @@ Em 06/09/2026, o teste Chrome passou: rotas, filtro/vazio, persistência após
 reload, quatro erros no formulário vazio, validação de dados fictícios,
 ausência de e-mail no storage, rota inválida, nove combinações rota/largura
 (375, 768, 1280px), recuperação de JSON corrompido e zero erros JS não tratados.
-Não houve auditoria completa com leitores de tela, outros navegadores ou backend.
+Na versão IV, a mesma suíte passou também sobre o build minificado. O axe-core
+não encontrou violações automatizadas WCAG 2 A/AA e 2.1 A/AA nas três rotas,
+em 375 e 1280px. Relatório em `evidencias/acessibilidade.json`.
+Isso não certifica conformidade integral: não houve auditoria completa com
+leitores de tela, outros navegadores, usuários ou backend.
+
+Para repetir, sirva o projeto e defina `TEST_URL` com a URL do index desejado;
+execute `npm test` e `npm run test:a11y`. Os scripts usam Chrome instalado.
+Para outra porta/caminho, ajuste somente `TEST_URL`.
+
+## Acessibilidade e desempenho
+
+Landmarks, títulos, labels, alt, link de salto, `aria-current`, `aria-expanded`,
+`aria-invalid`, descrições de erro e região `role=status` compõem a semântica.
+Troca de rota foca main; Escape no menu devolve o foco ao botão; o dialog nativo
+contém a interação modal e permite cancelar. Movimento reduzido é respeitado.
+Texto não depende apenas da cor para comunicar seleção ou erro.
+
+O build usa esbuild para empacotar/minificar JavaScript e minificar CSS, além de
+html-minifier-terser para HTML. WebP local foi redimensionado para 1200px (hero)
+e 1000px (projetos). Não se alega um resultado Lighthouse não medido.
 
 ## Fontes e créditos
 
@@ -41,5 +82,5 @@ Não houve auditoria completa com leitores de tela, outros navegadores ou backen
 - Horta: [Alfo Medeiros/Pexels](https://www.pexels.com/photo/man-and-woman-watering-the-plants-12916211/).
 
 Implementação, documentação e testes desenvolvidos com apoio de IA.
-DreamShaper: perguntas disponíveis concluídas (100%). Esse indicador não é nota
-nem comprovação de registro final no Blackboard.
+O progresso pedagógico no DreamShaper é separado de nota e de registro final
+no Blackboard. Consulte o AVA para confirmar avaliação e situação acadêmica.
