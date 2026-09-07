@@ -12,8 +12,13 @@ const fs = require('node:fs');
     for (const route of ['inicio', 'projetos', 'cadastro']) {
       await page.goto(`${base}#/${route}`);
       await page.locator('[v-cloak]').waitFor({ state: 'detached' });
-      const scan = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
-      results.push({ width, route, violations: scan.violations.map(({ id, impact, nodes }) => ({ id, impact, targets: nodes.map((node) => node.target) })) });
+      for (const contrast of ['normal', 'alto']) {
+        const toggle = page.getByRole('button', { name: 'Alto contraste' });
+        if ((await toggle.getAttribute('aria-pressed') === 'true') !== (contrast === 'alto')) await toggle.click();
+        await page.locator('.button').evaluateAll((elements) => Promise.all(elements.flatMap((element) => element.getAnimations().map((animation) => animation.finished))));
+        const scan = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+        results.push({ width, route, contrast, violations: scan.violations.map(({ id, impact, nodes }) => ({ id, impact, targets: nodes.map((node) => node.target) })) });
+      }
     }
   }
   fs.mkdirSync(`${__dirname}/evidencias`, { recursive: true });

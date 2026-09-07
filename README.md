@@ -3,6 +3,9 @@
 SPA acadêmica em Vue 3.5.21, com módulos JavaScript nativos. Organização fictícia;
 nenhuma inscrição, doação ou comunicação real é realizada.
 
+[Abrir site](https://renatomarinhofr.github.io/rede-aurora-faculdade/) ·
+[Repositório](https://github.com/renatomarinhofr/rede-aurora-faculdade)
+
 ## Executar
 
 Na pasta do projeto, execute `python3 -m http.server 8000` e acesse
@@ -54,6 +57,9 @@ ausência de e-mail no storage, rota inválida, nove combinações rota/largura
 Na versão IV, a mesma suíte passou também sobre o build minificado. O axe-core
 não encontrou violações automatizadas WCAG 2 A/AA e 2.1 A/AA nas três rotas,
 em 375 e 1280px. Relatório em `evidencias/acessibilidade.json`.
+Na evolução 1.1.0, a auditoria cobre os modos normal e alto contraste
+(12 combinações), e a suíte verifica Enter/Tab/Escape no menu e no modal,
+retorno de foco e alternância visual real do contraste por Espaço.
 Isso não certifica conformidade integral: não houve auditoria completa com
 leitores de tela, outros navegadores, usuários ou backend.
 
@@ -68,6 +74,11 @@ Landmarks, títulos, labels, alt, link de salto, `aria-current`, `aria-expanded`
 Troca de rota foca main; Escape no menu devolve o foco ao botão; o dialog nativo
 contém a interação modal e permite cancelar. Movimento reduzido é respeitado.
 Texto não depende apenas da cor para comunicar seleção ou erro.
+
+O botão Alto contraste ativa fundo preto, texto branco (21:1) e ações amarelas
+(19,56:1), com foco e bordas explícitas. O estado acompanha as rotas da sessão,
+mas não persiste após recarregar. Há suporte CSS a forced-colors. As proporções
+foram calculadas por luminância relativa; as telas foram auditadas com axe.
 
 O build usa esbuild para empacotar/minificar JavaScript e minificar CSS, além de
 html-minifier-terser para HTML. WebP local foi redimensionado para 1200px (hero)
