@@ -13,6 +13,7 @@
 <body>
 <noscript>Esta aplicação precisa de JavaScript. Ative-o para navegar no protótipo.</noscript>
 <div id="app" v-cloak>
+<div :class="{'high-contrast': highContrast}">
   <a class="skip-link" href="#conteudo" @click.prevent="$refs.main.focus()">Pular para o conteúdo</a>
   <header class="site-header">
     <div class="shell header-inner">
@@ -25,6 +26,7 @@
           <li><a class="nav-action" href="#/cadastro" :aria-current="route === 'cadastro' ? 'page' : null">Quero participar</a></li>
         </ul>
       </nav>
+      <button class="contrast-toggle" type="button" :aria-pressed="highContrast" @click="highContrast = !highContrast">Alto contraste</button>
     </div>
   </header>
   <main id="conteudo" ref="main" tabindex="-1">
@@ -66,6 +68,7 @@
   <p class="app-status shell" role="status" aria-live="polite">{{ status }}</p>
   <dialog class="feedback-dialog" ref="dialog" aria-labelledby="delete-title"><h2 id="delete-title">Apagar suas preferências?</h2><p>Os favoritos deste navegador serão removidos. O restante dos dados do navegador não será alterado.</p><div class="form-actions"><button class="button button-light" @click="$refs.dialog.close()" autofocus>Cancelar</button><button class="button button-primary" @click="clear">Apagar favoritos</button></div></dialog>
   <footer class="site-footer"><div class="shell"><strong>Rede Aurora</strong><p>Protótipo acadêmico · Sem inscrições, doações ou serviços reais.</p><p>Fotografias ilustrativas do Pexels. Créditos completos no README.</p></div></footer>
+</div>
 </div>
 </body>
 </html>

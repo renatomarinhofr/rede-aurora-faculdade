@@ -2,31 +2,73 @@
   {
     "width": 375,
     "route": "inicio",
+    "contrast": "normal",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "route": "inicio",
+    "contrast": "alto",
     "violations": []
   },
   {
     "width": 375,
     "route": "projetos",
+    "contrast": "normal",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "route": "projetos",
+    "contrast": "alto",
     "violations": []
   },
   {
     "width": 375,
     "route": "cadastro",
+    "contrast": "normal",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "route": "cadastro",
+    "contrast": "alto",
     "violations": []
   },
   {
     "width": 1280,
     "route": "inicio",
+    "contrast": "normal",
+    "violations": []
+  },
+  {
+    "width": 1280,
+    "route": "inicio",
+    "contrast": "alto",
     "violations": []
   },
   {
     "width": 1280,
     "route": "projetos",
+    "contrast": "normal",
+    "violations": []
+  },
+  {
+    "width": 1280,
+    "route": "projetos",
+    "contrast": "alto",
     "violations": []
   },
   {
     "width": 1280,
     "route": "cadastro",
+    "contrast": "normal",
+    "violations": []
+  },
+  {
+    "width": 1280,
+    "route": "cadastro",
+    "contrast": "alto",
     "violations": []
   }
 ]

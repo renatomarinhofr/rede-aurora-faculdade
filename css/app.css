@@ -1,5 +1,21 @@
 [v-cloak] { display: none; }
 .spa-menu { display: none; }
+.header-inner { flex-wrap: wrap; }
+.contrast-toggle { min-height: 44px; padding: var(--space-1) var(--space-2); border: 1px solid var(--forest-950); border-radius: var(--radius-small); color: var(--forest-950); background: var(--paper); cursor: pointer; }
+.high-contrast { color: #fff; background: #000; min-height: 100vh; color-scheme: dark; }
+.high-contrast :is(.site-header, .hero, .site-footer, .project-copy, .consent, .app-status, .badge, .feedback-dialog, input, select) { color: #fff; background: #000; border-color: #fff; }
+#app .high-contrast :is(h1, h2, p, label, strong, figcaption, span, .field-error) { color: #fff; }
+#app .high-contrast :is(a, button, .button, .nav-action) { color: #ffff00; background: #000; border-color: #ffff00; }
+.high-contrast a { text-decoration: underline; }
+.high-contrast .button { transition: none; }
+.high-contrast :is(button, input, select, .button) { border-width: 2px; border-style: solid; }
+.high-contrast :is(input, textarea)::placeholder { color: #fff; }
+.high-contrast :focus-visible { outline: 3px solid #ffff00; outline-offset: 4px; box-shadow: none; }
+.high-contrast .hero::before { display: none; }
+@media (forced-colors: active) {
+  :is(button, .button, input, select) { border: 2px solid ButtonText; }
+  :focus-visible { outline: 3px solid Highlight; box-shadow: none; }
+}
 .section > h1 { max-width: 20ch; font-family: Georgia, serif; font-size: var(--text-display); line-height: 1.05; letter-spacing: -0.03em; overflow-wrap: anywhere; }
 .filters { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-block: var(--space-4); }
 .participation-form { max-width: 40rem; margin-block: var(--space-4); }

@@ -6,7 +6,7 @@ import { currentRoute, routeNames } from './modules/router.js';
 
 const saved = loadPreferences();
 createApp({
-  data: () => ({ route: currentRoute(), projects, favorites: saved.favorites, status: saved.notice, query: '', category: '', menuOpen: false, form: { name: '', email: '', project: '', consent: false }, errors: {} }),
+  data: () => ({ route: currentRoute(), projects, favorites: saved.favorites, status: saved.notice, query: '', category: '', menuOpen: false, highContrast: false, form: { name: '', email: '', project: '', consent: false }, errors: {} }),
   computed: {
     filteredProjects() {
       const query = this.query.trim().toLocaleLowerCase('pt-BR');
