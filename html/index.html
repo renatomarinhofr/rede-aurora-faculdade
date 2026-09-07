@@ -17,8 +17,8 @@
   <header class="site-header">
     <div class="shell header-inner">
       <a class="brand" href="#/inicio"><img src="../imagens/logo-aurora.svg" width="42" height="42" alt=""><span>Rede Aurora</span></a>
-      <button class="spa-menu" type="button" aria-controls="navigation" :aria-expanded="menuOpen" @click="menuOpen = !menuOpen">Menu</button>
-      <nav id="navigation" aria-label="Principal" :class="{open: menuOpen}" @keydown.esc="menuOpen=false">
+      <button ref="menuButton" class="spa-menu" type="button" aria-controls="navigation" :aria-expanded="menuOpen" @click="menuOpen = !menuOpen">Menu</button>
+      <nav id="navigation" aria-label="Principal" :class="{open: menuOpen}" @keydown.esc="closeMenu">
         <ul class="nav-list">
           <li><a href="#/inicio" :aria-current="route === 'inicio' ? 'page' : null">Início</a></li>
           <li><a href="#/projetos" :aria-current="route === 'projetos' ? 'page' : null">Projetos</a></li>
