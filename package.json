@@ -1,0 +1,16 @@
+{
+  "name": "rede-aurora-faculdade",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node build.cjs",
+    "test": "node test.cjs",
+    "test:a11y": "node a11y.cjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "esbuild": "0.25.9",
+    "html-minifier-terser": "7.2.0",
+    "playwright": "1.58.2"
+  }
+}

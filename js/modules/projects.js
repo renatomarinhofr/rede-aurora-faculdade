@@ -1,0 +1,5 @@
+export const projects = [
+  { id: 'educacao', category: 'Educação', title: 'Virada do Caderno', image: 'projeto-educacao.webp', alt: 'Educador acompanhando crianças em uma atividade de leitura', description: 'Acompanhamento escolar e inclusão digital para estudantes, com planejamento junto às famílias.', credit: 'Anastasia Shuraeva/Pexels', url: 'https://www.pexels.com/photo/students-inside-a-classroom-8466902/' },
+  { id: 'alimentacao', category: 'Segurança alimentar', title: 'Mesa de Todo Dia', image: 'projeto-alimento.webp', alt: 'Voluntários organizando alimentos para doação', description: 'Organização de doações e ações de segurança alimentar no território.', credit: 'Julia M Cameron/Pexels', url: 'https://www.pexels.com/photo/people-donating-food-to-a-charity-6995220/' },
+  { id: 'ambiente', category: 'Meio ambiente', title: 'Bairro Vivo', image: 'projeto-horta.webp', alt: 'Pessoas cuidando de uma horta comunitária', description: 'Mutirões de cuidado com hortas e espaços comuns do bairro.', credit: 'Alfo Medeiros/Pexels', url: 'https://www.pexels.com/photo/man-and-woman-watering-the-plants-12916211/' },
+];
