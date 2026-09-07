@@ -3,7 +3,8 @@ const { AxeBuilder } = require('@axe-core/playwright');
 const fs = require('node:fs');
 (async () => {
   const browser = await chromium.launch({ channel: 'chrome', headless: true });
-  const page = await browser.newPage();
+  const context = await browser.newContext();
+  const page = await context.newPage();
   const base = process.env.TEST_URL || 'http://127.0.0.1:8766/experiencia-pratica-iv/html/index.html';
   const results = [];
   for (const width of [375, 1280]) {

@@ -1,0 +1,32 @@
+[
+  {
+    "width": 375,
+    "route": "inicio",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "route": "projetos",
+    "violations": []
+  },
+  {
+    "width": 375,
+    "route": "cadastro",
+    "violations": []
+  },
+  {
+    "width": 1280,
+    "route": "inicio",
+    "violations": []
+  },
+  {
+    "width": 1280,
+    "route": "projetos",
+    "violations": []
+  },
+  {
+    "width": 1280,
+    "route": "cadastro",
+    "violations": []
+  }
+]
